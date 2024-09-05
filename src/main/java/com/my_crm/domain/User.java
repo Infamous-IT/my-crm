@@ -1,7 +1,7 @@
-package com.smart_solution.my_crm.domain;
+package com.my_crm.domain;
 
-import com.smart_solution.my_crm.domain.enums.Category;
-import com.smart_solution.my_crm.domain.enums.Role;
+import com.my_crm.domain.enums.Category;
+import com.my_crm.domain.enums.Role;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

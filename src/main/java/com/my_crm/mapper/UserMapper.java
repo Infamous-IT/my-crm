@@ -1,7 +1,7 @@
-package com.smart_solution.my_crm.mapper;
+package com.my_crm.mapper;
 
-import com.smart_solution.my_crm.domain.User;
-import com.smart_solution.my_crm.dto.UserDTO;
+import com.my_crm.domain.User;
+import com.my_crm.dto.UserDTO;
 import org.mapstruct.Mapper;
 //import org.mapstruct.MappingConstants;
 

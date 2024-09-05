@@ -1,4 +1,4 @@
-package com.smart_solution.my_crm;
+package com.my_crm;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

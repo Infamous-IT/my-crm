@@ -1,4 +1,4 @@
-package com.smart_solution.my_crm.dto;
+package com.my_crm.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

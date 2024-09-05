@@ -1,6 +1,6 @@
-package com.smart_solution.my_crm.repo;
+package com.my_crm.repo;
 
-import com.smart_solution.my_crm.domain.User;
+import com.my_crm.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
