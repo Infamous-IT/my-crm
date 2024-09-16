@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface UserService {
 
     List<UserDTO> get();
-    UserDTO update(UserDTO userDTO);
+    UserDTO update(UUID id, UserDTO userDTO);
     UserDTO create(UserDTO userDTO);
     UserDTO get(UUID id);
     void delete(UUID id);

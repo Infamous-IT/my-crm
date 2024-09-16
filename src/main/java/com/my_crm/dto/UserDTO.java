@@ -3,9 +3,10 @@ package com.my_crm.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import java.util.UUID;
 
@@ -15,7 +16,6 @@ public class UserDTO {
     private UUID id;
 
     @Email
-    @UniqueElements(message = "Email should be unique.")
     @NotBlank(message = "Email cannot be empty.")
     private String email;
 
@@ -27,7 +27,6 @@ public class UserDTO {
     @NotBlank(message = "Lastname cannot be empty.")
     private String lastname;
 
-    @UniqueElements(message = "Phone number should be unique.")
     private String phone;
 
     @Length(min = 2, max = 70, message = "Country should be min 2 symbols and max 70 symbols.")
@@ -37,25 +36,31 @@ public class UserDTO {
     @Length(min = 2, max = 120, message = "City should be min 2 symbols and max 120 symbols.")
     private String city;
 
+    @Length(min = 6, max = 50, message = "The password should be min 6 symbols and max 50 symbols.")
+    @NotBlank(message = "Password cannot be empty.")
+    private String password;
+
     private int balance;
 
     private boolean isAdmin;
 
     private boolean isOnline;
 
-    public UserDTO(String email, String firstname, String lastname, String country) {
+    public UserDTO(String email, String firstname, String lastname, String country, String password) {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.password = password;
         this.country = country;
     }
 
-    public UserDTO(String email, String firstname, String lastname, String phone, String country, String city) {
+    public UserDTO(String email, String firstname, String lastname, String phone, String country, String city, String password) {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
         this.country = country;
         this.city = city;
+        this.password = password;
     }
 }

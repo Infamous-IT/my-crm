@@ -4,6 +4,7 @@ import com.my_crm.domain.User;
 import com.my_crm.dto.UserDTO;
 import com.my_crm.mapper.UserMapper;
 import com.my_crm.repo.UserRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,10 +32,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserDTO update(UserDTO userDTO) {
-        User user = userMapper.userDTOToUser(userDTO);
-        User updatedUser = userRepository.save(user);
-        userRepository.flush();
+    public UserDTO update(UUID id, UserDTO userDTO) {
+        User existingUser  = userRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("User not found with id: " + id));
+
+        userMapper.updateUserFromDTO(userDTO, existingUser);
+        User updatedUser = userRepository.save(existingUser);
         return userMapper.userToUserDTO(updatedUser);
     }
 

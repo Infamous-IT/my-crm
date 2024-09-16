@@ -16,7 +16,7 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(name = "email", unique = true, nullable = false)
@@ -37,6 +37,9 @@ public class User {
     @Column(name = "city")
     private String city;
 
+    @Column(name = "password", nullable = false)
+    private String password;
+
     @Column(name = "balance")
     private int balance;
 
@@ -56,19 +59,21 @@ public class User {
     @Column(name = "category")
     private List<Category> categories;
 
-    public User(String email, String firstname, String lastname, String country) {
+    public User(String email, String firstname, String lastname, String country, String password) {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
         this.country = country;
+        this.password = password;
     }
 
-    public User(String email, String firstname, String lastname, String phone, String country, String city) {
+    public User(String email, String firstname, String lastname, String phone, String country, String city, String password) {
         this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
         this.country = country;
         this.city = city;
+        this.password = password;
     }
 }
